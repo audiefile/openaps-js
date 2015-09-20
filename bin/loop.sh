@@ -138,7 +138,7 @@ cat requestedtemp.json | json_pp | grep reason >> /var/log/openaps/easy.log
 grep -q rate requestedtemp.json && ( openaps enact || openaps enact ) && tail enactedtemp.json && ( echo && cat enactedtemp.json | egrep -i "bg|rate|dur|re|tic|tim" | sort -r ) >> /var/log/openaps/easy.log && cat iob.json | json_pp | grep '"iob' >> /var/log/openaps/easy.log
 
 echo "Re-querying pump"
-query pump
+querypump
 
 # unlock in case upload is really slow
 rm /tmp/openaps.lock
